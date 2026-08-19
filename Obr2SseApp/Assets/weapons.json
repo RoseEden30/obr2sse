@@ -292,11 +292,6 @@
       "Note": "clean/enchanted Mace of Molag Bal (vanilla)"
     },
     {
-      "Source": "SM_Duskfang_Sword",
-      "Template": "meshes\\creationclub\\bgssse013\\weapons\\3rdpersondawnfang.nif",
-      "Note": "CC bgssse013 Dawnfang/Duskfang"
-    },
-    {
       "Source": "SM_Goldbrand_LongSword",
       "Template": "meshes\\creationclub\\bgssse005\\weapons\\goldbrand\\3rdpersongoldbrand.nif",
       "Note": "CC bgssse005 Goldbrand"
