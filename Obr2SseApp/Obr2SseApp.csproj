@@ -9,6 +9,7 @@
     <RootNamespace>Obr2SseApp</RootNamespace>
     <InvariantGlobalization>true</InvariantGlobalization>
     <ApplicationIcon>Assets\obr2sse.ico</ApplicationIcon>
+    <Version>1.0.1</Version>
   </PropertyGroup>
 
   <ItemGroup>

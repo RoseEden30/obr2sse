@@ -263,7 +263,8 @@ public sealed class MainForm : Form
     }
 
     private void ShowAbout() => MessageBox.Show(this,
-        "OBR2SSE\n" +
+        "OBR2SSE - " +
+        $"v{System.Reflection.Assembly.GetExecutingAssembly().GetName().Version!.ToString(3)}\n" +
         "Oblivion Remastered to Skyrim Special Edition\n\n" +
         "by RoseEden30\n\n" +
         "Reads your own game installs. Ships no game assets.\n\n" +
