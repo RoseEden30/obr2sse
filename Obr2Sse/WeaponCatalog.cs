@@ -115,6 +115,11 @@ public static class WeaponCatalog
     /// longest first; default is steel. Every tier is Skyrim.esm.
     private static readonly (string Keyword, string Material)[] MaterialTiers =
     {
+        // Named artifacts that carry their own stats but still need a sensible tier to forge at.
+        ("Chillrend", "Glass"),
+        ("MehrunesRazor", "Daedric"),
+        ("Volendrung", "Daedric"),
+        ("MolagBal", "Ebony"),
         ("MehrunesDagon", "Daedric"),
         ("ClavicusUmbra", "Daedric"),
         ("Goldbrand", "Daedric"),
@@ -211,6 +216,10 @@ public static class WeaponCatalog
 
         return MaterialTier(source) + TypeWord(type);
     }
+
+    /// The vanilla material-and-type weapon a source borrows its forge and grindstone recipes from, so it
+    /// crafts at its material tier: a glass sword at Glass Smithing, Goldbrand as a daedric blade.
+    public static string MaterialRecord(string source, WeaponType type) => MaterialTier(source) + TypeWord(type);
 
     /// The standalone mesh path a source is written to, relative to the output root. World is the
     /// third person model the weapon record points at; First is its first person twin, found by the

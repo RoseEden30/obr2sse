@@ -30,6 +30,13 @@ public static class EspBuilder
     private const uint CraftingSmithingForge = 0x00088105;
     private const uint SharpeningWheel = 0x00088108;
 
+    private static void AddItem(ConstructibleObject cobj, IItemGetter item, int count)
+    {
+        var entry = new ContainerEntry { Item = new ContainerItem { Count = count } };
+        entry.Item.Item.SetTo(item.FormKey);
+        cobj.Items!.Add(entry);
+    }
+
     /// Builds the standalone plugin for a set of converted weapons. Each entry is a new weapon record
     /// duplicated from a base (a matching unique, else the vanilla weapon of its material and type), so
     /// it keeps that weapon's stats, keywords, enchantment and recipes; only the models, name and editor
@@ -70,6 +77,12 @@ public static class EspBuilder
         foreach (var oe in env.LoadOrder.PriorityOrder.ObjectEffect().WinningOverrides())
             if (oe.EditorID is { } id)
                 enchByEditorId[id] = oe;
+
+        // Staves have no smithable material, so they craft at the Staff Enchanter from a heart stone.
+        // If the install lacks these records they just get no recipe, never a broken one.
+        env.LinkCache.TryResolve<IKeywordGetter>("DLC2StaffEnchanter", out var staffBench);
+        env.LinkCache.TryResolve<IItemGetter>("DLC2HeartStone", out var heartStone);
+        env.LinkCache.TryResolve<IItemGetter>("SoulGemGrandFilled", out var grandSoul);
 
         var mod = new SkyrimMod(ModKey.FromNameAndExtension("OBR2SSE - Weapons.esp"), SkyrimRelease.SkyrimSE);
 
@@ -141,19 +154,34 @@ public static class EspBuilder
                 enchanted = true;
             }
 
-            // Copy the base weapon's recipes, repointed at the new weapon, so it forges and tempers
-            // exactly as vanilla. An enchanted artifact drops the forge recipe (you cannot smith
-            // Goldbrand) but keeps the grindstone one, so it is temperable but not craftable.
+            // Melee weapons forge and temper at their material tier, borrowing the vanilla recipes of the
+            // matching material weapon (a glass sword at Glass Smithing, Goldbrand as a daedric blade).
+            // This is what gives the named artifacts a forge recipe, since their own record has none.
             int copied = 0;
-            foreach (var recipe in recipes.Where(c => c.CreatedObject.FormKey == template.FormKey))
+            if (entry.Type == WeaponType.Staff)
             {
-                bool forge = recipe.WorkbenchKeyword.FormKey.ID == CraftingSmithingForge;
-                if (enchanted && forge)
-                    continue;
-
-                var cobj = mod.ConstructibleObjects.DuplicateInAsNewRecord(recipe);
-                cobj.EditorID = $"OBR_{entry.Source}_Recipe{(copied++ == 0 ? "" : copied.ToString())}";
-                cobj.CreatedObject.SetTo(weap);
+                if (staffBench is not null && heartStone is not null)
+                {
+                    var cobj = mod.ConstructibleObjects.AddNew($"OBR_{entry.Source}_Recipe");
+                    cobj.CreatedObject.SetTo(weap);
+                    cobj.CreatedObjectCount = 1;
+                    cobj.WorkbenchKeyword.SetTo(staffBench);
+                    cobj.Items = new();
+                    AddItem(cobj, heartStone, 1);
+                    if (grandSoul is not null)
+                        AddItem(cobj, grandSoul, 1);
+                    copied = 1;
+                }
+            }
+            else if (byEditorId.TryGetValue(WeaponCatalog.MaterialRecord(entry.Source, entry.Type), out var donor)
+                     && IsBaseGame(donor))
+            {
+                foreach (var recipe in recipes.Where(c => c.CreatedObject.FormKey == donor.FormKey))
+                {
+                    var cobj = mod.ConstructibleObjects.DuplicateInAsNewRecord(recipe);
+                    cobj.EditorID = $"OBR_{entry.Source}_Recipe{(copied++ == 0 ? "" : copied.ToString())}";
+                    cobj.CreatedObject.SetTo(weap);
+                }
             }
 
             made++;

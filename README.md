@@ -74,7 +74,9 @@ Stats come from the vanilla weapon of the same material and type, so a glass swo
 sword. Oblivion-only materials map to the nearest Skyrim tier (Amber and Golden Saint to glass, Madness
 to ebony, and so on). Named artifacts keep their own stats, enchantment and description: Mehrunes' Razor,
 Chillrend, Goldbrand, the Ebony Blade, Wabbajack, the Skull of Corruption. Staves become weapon records
-with a matching staff enchantment. The plugin is ESL-flagged and needs only `Skyrim.esm`.
+with a matching staff enchantment. Every weapon is craftable: melee weapons forge and temper at their
+material tier, with that tier's perk and materials, and staves are made at the Staff Enchanter from a
+heart stone.
 
 ### Options
 
