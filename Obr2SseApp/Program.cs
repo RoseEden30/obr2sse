@@ -47,6 +47,14 @@ internal static class Program
             return;
         }
 
+        using var singleInstance = new Mutex(true, "Obr2Sse-SingleInstance", out var createdNew);
+        if (!createdNew)
+        {
+            MessageBox.Show("Obr2Sse is already running.", "Obr2Sse",
+                MessageBoxButtons.OK, MessageBoxIcon.Information);
+            return;
+        }
+
         ApplicationConfiguration.Initialize();
         Application.Run(new MainForm());
     }
