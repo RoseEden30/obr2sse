@@ -1,0 +1,12 @@
+# Build output
+bin/
+obj/
+native/build/
+
+# Third-party binaries and data, obtained by the user (see README)
+native/nifly/
+tools/
+reference/
+
+# Local files
+env.cmd

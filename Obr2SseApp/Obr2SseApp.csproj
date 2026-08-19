@@ -1,0 +1,40 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net10.0-windows</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RootNamespace>Obr2SseApp</RootNamespace>
+    <InvariantGlobalization>true</InvariantGlobalization>
+    <ApplicationIcon>Assets\obr2sse.ico</ApplicationIcon>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Obr2Sse\Obr2Sse.csproj" />
+    <PackageReference Include="NAudio" Version="2.2.1" />
+    <!-- Pin past CVE-2026-26127 (Base64Url DoS); pulled in transitively via CUE4Parse's IndexRange. -->
+    <PackageReference Include="Microsoft.Bcl.Memory" Version="9.0.14" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Assets\obr2sse.ico" />
+    <EmbeddedResource Include="Assets\obr2sse.mp3" />
+    <EmbeddedResource Include="Assets\mappings.usmap" />
+    <EmbeddedResource Include="Assets\weapons.json" />
+  </ItemGroup>
+
+  <!-- The native NIF library and texconv ship beside the app so it needs no external tools. -->
+  <ItemGroup>
+    <None Include="..\native\build\bin\nifwrap.dll" Condition="Exists('..\native\build\bin\nifwrap.dll')">
+      <Link>nifwrap.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\tools\texconv.exe" Condition="Exists('..\tools\texconv.exe')">
+      <Link>texconv.exe</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>

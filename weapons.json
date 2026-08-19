@@ -1,0 +1,392 @@
+{
+  "Weapons": [
+    {
+      "Source": "SM_Iron_Mace",
+      "Template": "meshes\\weapons\\iron\\ironmace.nif",
+      "Note": "guessed, check before running"
+    },
+    {
+      "Source": "SM_Iron_BattleAxe",
+      "Template": "meshes\\weapons\\iron\\ironbattleaxe.nif",
+      "Note": "guessed, check before running"
+    },
+    {
+      "Source": "SM_Iron_Dagger",
+      "Template": "meshes\\weapons\\iron\\irondagger.nif",
+      "Note": "guessed, check before running"
+    },
+    {
+      "Source": "SM_Iron_WarAxe",
+      "Template": "meshes\\weapons\\iron\\waraxe.nif",
+      "Note": "guessed, check before running"
+    },
+    {
+      "Source": "SM_Iron_LongSword",
+      "Template": "meshes\\weapons\\iron\\longsword.nif",
+      "Note": "guessed, check before running"
+    },
+    {
+      "Source": "SM_Iron_WarHammer",
+      "Template": "meshes\\weapons\\iron\\warhammer.nif",
+      "Note": "guessed, check before running"
+    },
+    {
+      "Source": "SM_Dwarven_LongSword",
+      "Template": "meshes\\weapons\\dwarven\\dwarvensword.nif",
+      "Note": "guessed, check before running"
+    },
+    {
+      "Source": "SM_Dwarven_WarHammer",
+      "Template": "meshes\\weapons\\dwarven\\dwarvenwarhammer.nif",
+      "Note": "guessed, check before running"
+    },
+    {
+      "Source": "SM_Dwarven_Mace",
+      "Template": "meshes\\weapons\\dwarven\\dwarvenmace.nif",
+      "Note": "guessed, check before running"
+    },
+    {
+      "Source": "SM_Dwarven_BattleAxe",
+      "Template": "meshes\\weapons\\dwarven\\dwarvenbattleaxe.nif",
+      "Note": "guessed, check before running"
+    },
+    {
+      "Source": "SM_Dwarven_WarAxe",
+      "Template": "meshes\\weapons\\dwarven\\dwarvenhandaxe.nif"
+    },
+    {
+      "Source": "SM_Dwarven_Claymore",
+      "Template": "meshes\\weapons\\dwarven\\dwarvengreatsword.nif",
+      "Note": "guessed, check before running"
+    },
+    {
+      "Source": "SM_Dwarven_Dagger",
+      "Template": "meshes\\weapons\\dwarven\\dwarvendagger.nif",
+      "Note": "guessed, check before running"
+    },
+    {
+      "Source": "SM_Daedric_Dagger",
+      "Template": "meshes\\weapons\\daedric\\daedricdagger.nif",
+      "Note": "guessed, check before running"
+    },
+    {
+      "Source": "SM_Daedric_BattleAxe",
+      "Template": "meshes\\weapons\\daedric\\daedricbattleaxe.nif",
+      "Note": "guessed, check before running"
+    },
+    {
+      "Source": "SM_Daedric_Mace",
+      "Template": "meshes\\weapons\\daedric\\daedricmace.nif",
+      "Note": "guessed, check before running"
+    },
+    {
+      "Source": "SM_Daedric_Claymore",
+      "Template": "meshes\\weapons\\daedric\\daedricgreatsword.nif",
+      "Note": "guessed, check before running"
+    },
+    {
+      "Source": "SM_Daedric_WarAxe",
+      "Template": "meshes\\weapons\\daedric\\daedricwaraxe.nif",
+      "Note": "guessed, check before running"
+    },
+    {
+      "Source": "SM_Daedric_WarHammer",
+      "Template": "meshes\\weapons\\daedric\\daedricwarhammer.nif",
+      "Note": "guessed, check before running"
+    },
+    {
+      "Source": "SM_Daedric_LongSword",
+      "Template": "meshes\\weapons\\daedric\\daedricsword.nif",
+      "Note": "guessed, check before running"
+    },
+    {
+      "Source": "SM_Glass_Claymore",
+      "Template": "meshes\\weapons\\glass\\glassgreatsword.nif",
+      "Note": "guessed, check before running"
+    },
+    {
+      "Source": "SM_Glass_LongSword",
+      "Template": "meshes\\weapons\\glass\\glasssword.nif",
+      "Note": "guessed, check before running"
+    },
+    {
+      "Source": "SM_Glass_WarHammer",
+      "Template": "meshes\\weapons\\glass\\glasswarhammer.nif",
+      "Note": "guessed, check before running"
+    },
+    {
+      "Source": "SM_Glass_Dagger",
+      "Template": "meshes\\weapons\\glass\\glassdagger.nif",
+      "Note": "guessed, check before running"
+    },
+    {
+      "Source": "SM_Glass_WarAxe",
+      "Template": "meshes\\weapons\\glass\\glasswaraxe.nif",
+      "Note": "guessed, check before running"
+    },
+    {
+      "Source": "SM_Glass_Mace",
+      "Template": "meshes\\weapons\\glass\\glassmace.nif",
+      "Note": "guessed, check before running"
+    },
+    {
+      "Source": "SM_Glass_BattleAxe",
+      "Template": "meshes\\weapons\\glass\\glassbattleaxe.nif",
+      "Note": "guessed, check before running"
+    },
+    {
+      "Source": "SM_Chillrend_Sword",
+      "Template": "meshes\\weapons\\glass\\glassswordchillrend.nif",
+      "Note": "guessed, check before running"
+    },
+    {
+      "Source": "SM_Steel_BattleAxe_Fine",
+      "Template": "meshes\\weapons\\steel\\steelbattleaxe.nif",
+      "Note": "guessed, check before running"
+    },
+    {
+      "Source": "SM_Steel_Dagger",
+      "Template": "meshes\\weapons\\steel\\steeldagger.nif",
+      "Note": "guessed, check before running"
+    },
+    {
+      "Source": "SM_Steel_Claymore",
+      "Template": "meshes\\weapons\\steel\\steelgreatsword.nif",
+      "Note": "guessed, check before running"
+    },
+    {
+      "Source": "SM_Steel_Mace",
+      "Template": "meshes\\weapons\\steel\\steelmace.nif",
+      "Note": "guessed, check before running"
+    },
+    {
+      "Source": "SM_Steel_LongSword",
+      "Template": "meshes\\weapons\\steel\\steelsword.nif",
+      "Note": "guessed, check before running"
+    },
+    {
+      "Source": "SM_Steel_WarHammer",
+      "Template": "meshes\\weapons\\steel\\steelwarhammer.nif",
+      "Note": "guessed, check before running"
+    },
+    {
+      "Source": "SM_Steel_WarAxe_fine",
+      "Template": "meshes\\weapons\\steel\\steelwaraxe.nif",
+      "Note": "guessed, check before running"
+    },
+    {
+      "Source": "SM_Silver_Claymore",
+      "Template": "meshes\\weapons\\silver\\silvergreatsword.nif",
+      "Note": "guessed, check before running"
+    },
+    {
+      "Source": "SM_Silver_LongSword",
+      "Template": "meshes\\weapons\\silver\\silversword.nif",
+      "Note": "guessed, check before running"
+    },
+    {
+      "Source": "SM_Elven_WarAxe",
+      "Template": "meshes\\weapons\\elven\\elvenwaraxe.nif",
+      "Note": "guessed, check before running"
+    },
+    {
+      "Source": "SM_Elven_Mace",
+      "Template": "meshes\\weapons\\elven\\elvenmace.nif",
+      "Note": "guessed, check before running"
+    },
+    {
+      "Source": "SM_Elven_BattleAxe",
+      "Template": "meshes\\weapons\\elven\\elvenbattleaxe.nif",
+      "Note": "guessed, check before running"
+    },
+    {
+      "Source": "SM_elven_Claymore",
+      "Template": "meshes\\weapons\\elven\\elvengreatsword.nif",
+      "Note": "guessed, check before running"
+    },
+    {
+      "Source": "SM_Elven_LongSword",
+      "Template": "meshes\\weapons\\elven\\elvensword.nif",
+      "Note": "guessed, check before running"
+    },
+    {
+      "Source": "SM_Elven_WarHammer",
+      "Template": "meshes\\weapons\\elven\\elvenwarhammer.nif",
+      "Note": "guessed, check before running"
+    },
+    {
+      "Source": "SM_Elven_Dagger",
+      "Template": "meshes\\weapons\\elven\\elvendagger.nif",
+      "Note": "guessed, check before running"
+    },
+    {
+      "Source": "SM_Ebony_WarHammer",
+      "Template": "meshes\\weapons\\ebony\\ebonywarhammer.nif",
+      "Note": "guessed, check before running"
+    },
+    {
+      "Source": "SM_Ebony_WarAxe",
+      "Template": "meshes\\weapons\\ebony\\ebonywaraxe.nif",
+      "Note": "guessed, check before running"
+    },
+    {
+      "Source": "SM_Ebony_Claymore",
+      "Template": "meshes\\weapons\\ebony\\ebonygreatsword.nif",
+      "Note": "guessed, check before running"
+    },
+    {
+      "Source": "SM_Ebony_LongSword",
+      "Template": "meshes\\weapons\\ebony\\ebonysword.nif",
+      "Note": "guessed, check before running"
+    },
+    {
+      "Source": "SM_Ebony_BattleAxe",
+      "Template": "meshes\\weapons\\ebony\\ebonybattleaxe.nif",
+      "Note": "guessed, check before running"
+    },
+    {
+      "Source": "SM_Ebony_Dagger",
+      "Template": "meshes\\weapons\\ebony\\ebonydagger.nif",
+      "Note": "guessed, check before running"
+    },
+    {
+      "Source": "SM_Ebony_Mace",
+      "Template": "meshes\\weapons\\ebony\\ebonymace.nif",
+      "Note": "guessed, check before running"
+    },
+    {
+      "Source": "SM_Iron_Claymore",
+      "Template": "meshes\\weapons\\iron\\ironclaymore.nif"
+    },
+    {
+      "Source": "SM_Akaviri_LongSword",
+      "Template": "meshes\\weapons\\akaviri\\bladessword.nif"
+    },
+    {
+      "Source": "SM_Steel_Cutlass",
+      "Template": "meshes\\weapons\\scimitar\\scimitar.nif"
+    },
+    {
+      "Source": "SM_EbonyBlade_LongSword",
+      "Template": "meshes\\weapons\\ebonyblade\\ebonyblade.nif"
+    },
+    {
+      "Source": "SM_Volendrung_WarHammer",
+      "Template": "meshes\\weapons\\volendrung\\volendrung.nif"
+    },
+    {
+      "Source": "SM_MehrunesRazor_Dagger",
+      "Template": "meshes\\weapons\\mehrunesrazor\\mehrunesrazor.nif"
+    },
+    {
+      "Source": "SM_MolagBal_Mace",
+      "Template": "meshes\\weapons\\maceofmolagbal\\rustymaceofmolagbal.nif"
+    },
+    {
+      "Source": "SM_MolagBal_Mace",
+      "Template": "meshes\\weapons\\maceofmolagbal\\testmaceofmolagbal.nif"
+    },
+    {
+      "Source": "SM_MolagBal_Mace",
+      "Template": "meshes\\weapons\\maceofmolagbal\\maceofmolagbal.nif",
+      "Note": "clean/enchanted Mace of Molag Bal (vanilla)"
+    },
+    {
+      "Source": "SM_Duskfang_Sword",
+      "Template": "meshes\\creationclub\\bgssse013\\weapons\\3rdpersondawnfang.nif",
+      "Note": "CC bgssse013 Dawnfang/Duskfang"
+    },
+    {
+      "Source": "SM_Goldbrand_LongSword",
+      "Template": "meshes\\creationclub\\bgssse005\\weapons\\goldbrand\\3rdpersongoldbrand.nif",
+      "Note": "CC bgssse005 Goldbrand"
+    },
+    {
+      "Source": "SM_Blackwater_Blade",
+      "Template": "meshes\\creationclub\\bgssse031\\weapons\\blackwaterblade\\3rdpersonblackwaterblade.nif",
+      "Note": "CC bgssse031 Blackwater Blade"
+    },
+    {
+      "Source": "SM_forkofhorripilation",
+      "Template": "meshes\\creationclub\\bgssse019\\weapons\\forkofhorripilation\\forkofhorripilation01.nif",
+      "Note": "CC bgssse019 Fork of Horripilation"
+    },
+    {
+      "Source": "SM_Shadow_BattleAxe",
+      "Template": "meshes\\creationclub\\bgssse018\\weapons\\shadowrend\\battleaxe.nif",
+      "Note": "CC bgssse018 Shadowrend"
+    },
+    {
+      "Source": "SM_Amber_LongSword",
+      "Template": "meshes\\creationclub\\bgssse025\\weapons\\amber\\3rdpersonambersword.nif"
+    },
+    {
+      "Source": "SM_Amber_Mace",
+      "Template": "meshes\\creationclub\\bgssse025\\weapons\\amber\\3rdpersonambermace.nif"
+    },
+    {
+      "Source": "SM_Amber_WarHammer",
+      "Template": "meshes\\creationclub\\bgssse025\\weapons\\amber\\3rdpersonamberwarhammer.nif"
+    },
+    {
+      "Source": "SM_Madness_LongSword",
+      "Template": "meshes\\creationclub\\bgssse025\\weapons\\madness\\3rdpersonmadnesssword.nif"
+    },
+    {
+      "Source": "SM_Madness_Claymore",
+      "Template": "meshes\\creationclub\\bgssse025\\weapons\\madness\\3rdpersonmadnessgreatsword.nif"
+    },
+    {
+      "Source": "SM_Madness_WarAxe",
+      "Template": "meshes\\creationclub\\bgssse025\\weapons\\madness\\3rdpersonmadnesswaraxe.nif"
+    },
+    {
+      "Source": "SM_GoldenSaint_LongSword",
+      "Template": "meshes\\creationclub\\bgssse025\\weapons\\goldensaint\\3rdpersongoldensaintsword.nif"
+    },
+    {
+      "Source": "SM_GoldenSaint_Mace",
+      "Template": "meshes\\creationclub\\bgssse025\\weapons\\goldensaint\\3rdpersongoldensaintmace.nif"
+    },
+    {
+      "Source": "SM_GoldenSaint_WarAxe",
+      "Template": "meshes\\creationclub\\bgssse025\\weapons\\goldensaint\\3rdpersongoldensaintwaraxe.nif"
+    },
+    {
+      "Source": "SM_GoldenSaint_ShortSword",
+      "Template": "meshes\\creationclub\\bgssse025\\weapons\\goldensaint\\3rdpersongoldensaintdagger.nif"
+    },
+    {
+      "Source": "SM_DarkSeducer_LongSword",
+      "Template": "meshes\\creationclub\\bgssse025\\weapons\\darkseducer\\3rdpersondarkseducersword.nif"
+    },
+    {
+      "Source": "SM_DarkSeducer_Mace",
+      "Template": "meshes\\creationclub\\bgssse025\\weapons\\darkseducer\\3rdpersondarkseducermace01.nif"
+    },
+    {
+      "Source": "SM_DarkSeducer_WarAxe",
+      "Template": "meshes\\creationclub\\bgssse025\\weapons\\darkseducer\\3rdpersondarkseducerwaraxe.nif"
+    },
+    {
+      "Source": "SM_DarkSeducer_ShortSword",
+      "Template": "meshes\\creationclub\\bgssse025\\weapons\\darkseducer\\3rdpersondarkseducerdagger.nif"
+    },
+    {
+      "Source": "SM_ClavicusUmbra_Sword",
+      "Template": "meshes\\creationclub\\bgssse016\\weapons\\umbra\\3rdpersonumbra.nif"
+    },
+    {
+      "Source": "SM_Wabbajack_Staff",
+      "Template": "meshes\\weapons\\wabbajack\\wabbajack.nif"
+    },
+    {
+      "Source": "SM_SkullOfCorruption_Staff",
+      "Template": "meshes\\weapons\\skullofcorruption\\skullofcorruption.nif"
+    },
+    {
+      "Source": "SM_SanguineRose_Staff",
+      "Template": "meshes\\weapons\\sanguinerose\\sanguinerose.nif"
+    }
+  ]
+}
