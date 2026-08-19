@@ -22,7 +22,9 @@
     <EmbeddedResource Include="Assets\obr2sse.ico" />
     <EmbeddedResource Include="Assets\obr2sse.mp3" />
     <EmbeddedResource Include="Assets\mappings.usmap" />
-    <EmbeddedResource Include="Assets\weapons.json" />
+    <EmbeddedResource Include="..\weapons.json">
+      <Link>Assets\weapons.json</Link>
+    </EmbeddedResource>
   </ItemGroup>
 
   <!-- The native NIF library and texconv ship beside the app so it needs no external tools. -->
