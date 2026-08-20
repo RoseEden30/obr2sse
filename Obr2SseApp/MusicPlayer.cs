@@ -14,6 +14,7 @@ public sealed class MusicPlayer : IDisposable
     private readonly RawSourceWaveStream _source;
     private readonly LoopStream _loop;
     private readonly float _volume;
+    private bool _ready;
 
     public MusicPlayer(float volume)
     {
@@ -34,18 +35,51 @@ public sealed class MusicPlayer : IDisposable
         _source = new RawSourceWaveStream(_pcm, format);
         _loop = new LoopStream(_source);
 
-        _output.Init(_loop);
-        _output.Volume = volume;
+        try
+        {
+            _output.Init(_loop);
+            _output.Volume = volume;
+            _ready = true;
+        }
+        catch
+        {
+            // No usable audio device: run silent rather than crash.
+            _ready = false;
+        }
     }
 
     public bool Muted { get; private set; }
 
-    public void Play() => _output.Play();
+    public void Play()
+    {
+        if (!_ready)
+            return;
+
+        try
+        {
+            _output.Play();
+        }
+        catch
+        {
+            _ready = false;
+        }
+    }
 
     public void ToggleMute()
     {
         Muted = !Muted;
-        _output.Volume = Muted ? 0f : _volume;
+
+        if (!_ready)
+            return;
+
+        try
+        {
+            _output.Volume = Muted ? 0f : _volume;
+        }
+        catch
+        {
+            _ready = false;
+        }
     }
 
     public void Dispose()

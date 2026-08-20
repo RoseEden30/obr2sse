@@ -56,8 +56,22 @@ internal static class Program
         }
 
         ApplicationConfiguration.Initialize();
-        Application.Run(new MainForm());
+
+        // Report a failure instead of vanishing without a trace.
+        Application.ThreadException += (_, e) => ShowFatal(e.Exception);
+
+        try
+        {
+            Application.Run(new MainForm());
+        }
+        catch (Exception e)
+        {
+            ShowFatal(e);
+        }
     }
+
+    private static void ShowFatal(Exception e) =>
+        MessageBox.Show(e.Message, "Obr2Sse - error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
     // WinExe detaches from the console it was launched from; reattach so --detect can print.
     [DllImport("kernel32.dll")]

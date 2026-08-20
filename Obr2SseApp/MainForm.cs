@@ -218,7 +218,16 @@ public sealed class MainForm : Form
     private async Task Detect()
     {
         Log("scanning for games...");
-        var (obr, skyrim) = await Task.Run(() => (GameDetect.FindOblivion(), GameDetect.FindSkyrim()));
+
+        string? obr = null, skyrim = null;
+        try
+        {
+            (obr, skyrim) = await Task.Run(() => (GameDetect.FindOblivion(), GameDetect.FindSkyrim()));
+        }
+        catch
+        {
+            // A registry or filesystem hiccup must not sink startup.
+        }
 
         if (obr is not null) _obr.Text = obr;
         if (skyrim is not null) _skyrim.Text = skyrim;
