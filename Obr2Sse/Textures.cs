@@ -179,39 +179,75 @@ public static class Textures
     /// into the sRGB target. High quality spends BC7's exhaustive search (-bc x).
     private static void Encode(ColorRgba32[,] pixels, string outPath, string format, bool srgbInput)
     {
-        var scratch = Path.Combine(Path.GetTempPath(), "obr2sse-tex");
+        // Unique per call so concurrent runs or an antivirus scan never share the input file. texconv
+        // names its output after the input, so only the folder changes, not the name.
+        var scratch = Path.Combine(Path.GetTempPath(), "obr2sse-tex", Guid.NewGuid().ToString("N"));
         Directory.CreateDirectory(scratch);
 
-        var input = Path.Combine(scratch, Path.GetFileName(outPath));
-        WriteUncompressedDds(pixels, input);
-
-        var args = new List<string> { "-nologo", "-y", "-f", format, "-m", "0" };
-        if (srgbInput) args.Add("-srgbi");
-        if (HighQuality) { args.Add("-bc"); args.Add("x"); }
-        args.Add("-o");
-        args.Add(Path.GetDirectoryName(Path.GetFullPath(outPath))!);
-        args.Add(input);
-
-        var start = new ProcessStartInfo(Texconv)
+        try
         {
-            RedirectStandardOutput = true,
-            RedirectStandardError = true,
-            UseShellExecute = false,
-            // texconv is a console program; without this it flashes a window on every texture.
-            CreateNoWindow = true,
-        };
-        foreach (var a in args)
-            start.ArgumentList.Add(a);
+            var input = Path.Combine(scratch, Path.GetFileName(outPath));
+            WriteUncompressedDds(pixels, input);
 
-        using var process = Process.Start(start) ?? throw new InvalidOperationException("could not start texconv");
-        string stderr = process.StandardError.ReadToEnd();
-        process.StandardOutput.ReadToEnd();
-        process.WaitForExit();
+            var args = new List<string> { "-nologo", "-y", "-f", format, "-m", "0" };
+            if (srgbInput) args.Add("-srgbi");
+            if (HighQuality) { args.Add("-bc"); args.Add("x"); }
+            args.Add("-o");
+            args.Add(Path.GetDirectoryName(Path.GetFullPath(outPath))!);
+            args.Add(input);
 
-        File.Delete(input);
+            RunTexconv(args, outPath);
+        }
+        finally
+        {
+            DeleteScratch(scratch);
+        }
+    }
 
-        if (process.ExitCode != 0)
-            throw new InvalidOperationException($"texconv failed ({process.ExitCode}) for {outPath}: {stderr}");
+    /// Runs texconv, retrying a few times: an antivirus can briefly lock the input or output file, and
+    /// -y makes each retry overwrite cleanly.
+    private static void RunTexconv(IReadOnlyList<string> args, string outPath)
+    {
+        const int attempts = 3;
+        for (int attempt = 1; ; attempt++)
+        {
+            var start = new ProcessStartInfo(Texconv)
+            {
+                RedirectStandardOutput = true,
+                RedirectStandardError = true,
+                UseShellExecute = false,
+                // texconv is a console program; without this it flashes a window on every texture.
+                CreateNoWindow = true,
+            };
+            foreach (var a in args)
+                start.ArgumentList.Add(a);
+
+            using var process = Process.Start(start) ?? throw new InvalidOperationException("could not start texconv");
+            string stderr = process.StandardError.ReadToEnd();
+            process.StandardOutput.ReadToEnd();
+            process.WaitForExit();
+
+            if (process.ExitCode == 0)
+                return;
+
+            if (attempt >= attempts)
+                throw new InvalidOperationException($"texconv failed ({process.ExitCode}) for {outPath}: {stderr}");
+
+            System.Threading.Thread.Sleep(150 * attempt);
+        }
+    }
+
+    private static void DeleteScratch(string dir)
+    {
+        try
+        {
+            if (Directory.Exists(dir))
+                Directory.Delete(dir, recursive: true);
+        }
+        catch
+        {
+            // Best effort; a folder still briefly held is harmless.
+        }
     }
 
     /// Writes the pixels as a plain 32-bit uncompressed DDS (B8G8R8A8), the input texconv compresses.
